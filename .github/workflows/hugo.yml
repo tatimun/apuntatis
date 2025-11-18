@@ -27,6 +27,11 @@ jobs:
           mkdir -p themes
           git clone https://github.com/MeiK2333/github-style.git themes/github-style
 
+      - name: Download custom layouts
+        run: |
+          curl -L https://github.com/tatimun/apuntatis/releases/download/v1/layouts.zip -o layouts.zip
+          unzip layouts.zip
+
       - name: Build site
         run: hugo --minify
 
