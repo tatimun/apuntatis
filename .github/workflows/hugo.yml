@@ -29,8 +29,8 @@ jobs:
 
       - name: Download custom layouts
         run: |
-          curl -L https://github.com/tatimun/apuntatis/releases/download/v1/layouts.zip -o layouts.zip
-          unzip layouts.zip
+          curl -L https://github.com/tatimun/apuntatis/releases/download/layout/layouts.zip -o layouts.zip
+          unzip -o layouts.zip
 
       - name: Build site
         run: hugo --minify
