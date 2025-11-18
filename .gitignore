@@ -5,7 +5,8 @@
 
 # Theme and local overrides (you don't want to push these)
 themes/
-
+layouts/
+layouts.zip
 # VSCode files
 .vscode/
 
