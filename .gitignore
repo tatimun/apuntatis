@@ -1,0 +1,31 @@
+# Hugo build output
+/public/
+/resources/_gen/
+/assets/jsconfig.json
+
+# Theme and local overrides (you don't want to push these)
+themes/
+/layouts/
+
+# VSCode files
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Hugo cache
+hugo_cache/
+.cache/
+
+# Temp files
+*.log
+*.tmp
+*.swp
+*.bak
+
+# Node things (por si usás algo más adelante)
+node_modules/
+
+# Windows garbage
+desktop.ini

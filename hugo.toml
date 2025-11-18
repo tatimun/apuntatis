@@ -1,0 +1,21 @@
+baseURL = "https://tatimun.github.io/apuntatis/"
+languageCode = "es"
+title = "Apuntatis"
+theme = "github-style"
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+page = ["HTML"]
+section = ["HTML"]
+term = ["HTML"]
+taxonomy = ["HTML"]
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Tati"
+  description = "Rompiendo cosas 😋"
+  email = "apuntatis@gmail.com"
+  avatar = "images/avatar.gif"
+  enableSearch = true
