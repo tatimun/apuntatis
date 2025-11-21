@@ -1,0 +1,20 @@
+{{ if .Site.Params.gitalk.enable }}
+<div id="gitalk-container" class="gitalk-container"></div>
+
+<link rel="stylesheet" href='{{ "css/gitalk.css" | relURL }}'>
+<script src='{{ "js/gitalk.min.js" | relURL }}'></script>
+
+<script>
+  const gitalk = new Gitalk({
+    clientID: '{{ .Site.Params.gitalk.clientID }}',
+    clientSecret: '{{ .Site.Params.gitalk.clientSecret }}',
+    repo: '{{ .Site.Params.gitalk.repo }}',
+    owner: '{{ .Site.Params.gitalk.owner }}',
+    admin: ['{{ .Site.Params.gitalk.owner }}'],
+    id: decodeURIComponent(location.pathname),
+    distractionFreeMode: false
+  });
+
+  gitalk.render("gitalk-container");
+</script>
+{{ end }}
