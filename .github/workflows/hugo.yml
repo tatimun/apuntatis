@@ -45,7 +45,7 @@ jobs:
           echo "===== DESPUÉS ====="
           cat hugo.toml
         env:
-          GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
+          GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
           GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
 
       # ⭐ BUILD DEL SITIO
