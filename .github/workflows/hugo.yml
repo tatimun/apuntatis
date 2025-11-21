@@ -27,6 +27,13 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      # ⭐ Volvés a bajar el theme:
+      - name: Download GitHub-Style theme
+        run: |
+          mkdir -p themes
+          git clone https://github.com/MeiK2333/github-style.git themes/github-style
+
+      # ⭐ Reemplazar variables del Gitalk
       - name: Replace secrets in hugo.toml
         run: |
           envsubst < hugo.toml > hugo.generated.toml
