@@ -27,6 +27,13 @@ jobs:
           hugo-version: "latest"
           extended: true
 
+      # ✔️ Descargar theme SIN exponerlo en main
+      - name: Download GitHub-Style theme
+        run: |
+          mkdir -p themes
+          git clone --depth 1 https://github.com/MeiK2333/github-style.git themes/github-style
+
+      # ✔️ Usar tus layouts reales del repo (ya subidos)
       - name: Build site
         run: hugo --minify
 
