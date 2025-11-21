@@ -48,6 +48,11 @@ jobs:
           GITALK_CLIENT_ID: ${{ secrets.GITALK_CLIENT_ID }}
           GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
 
+      - name: Show hugo.toml after substitution
+        run: |
+          echo "====== hugo.toml ======"
+          cat hugo.toml
+
       # ⭐ BUILD DEL SITIO
       - name: Build site
         run: hugo --minify
