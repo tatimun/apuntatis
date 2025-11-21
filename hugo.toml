@@ -21,6 +21,9 @@ pygmentsUseClasses = true
   description = "Rompiendo cosas 😋"
   email = "apuntatis@gmail.com"
 
+  custom_css = ["css/custom.css"]
+  custom_js = ["js/custom.js"]
+  
   # ⭐ RUTAS CORRECTAS PARA GITHUB PAGES
   avatar = "images/avatar.gif"
   favicon = "images/github-mark.png"
@@ -50,5 +53,11 @@ pygmentsUseClasses = true
     href = "https://tatimun.github.io/apuntatis/"
     icon = "images/avatar.gif"
 
+  [[params.links]]
+    title = "Postman"
+    href = "https://www.postman.com/titamoon"
+    icon = "images/postman-icon.svg"
+
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
+
