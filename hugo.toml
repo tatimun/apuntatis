@@ -3,12 +3,15 @@ languageCode = "es"
 title = "Apuntatis"
 theme = "github-style"
 
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
 [outputs]
-home = ["HTML", "RSS", "JSON"]
-page = ["HTML"]
-section = ["HTML"]
-term = ["HTML"]
-taxonomy = ["HTML"]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]
+  section = ["HTML"]
+  term = ["HTML"]
+  taxonomy = ["HTML"]
 
 [pagination]
   pagerSize = 10
@@ -17,5 +20,36 @@ taxonomy = ["HTML"]
   author = "Tati"
   description = "Rompiendo cosas 😋"
   email = "apuntatis@gmail.com"
-  avatar = "images/avatar.gif"
+
+  # ⭐ RUTAS ABSOLUTAS (esto arregla tu problema del avatar)
+  avatar = "/images/avatar.gif"
+  favicon = "/images/github-mark.png"
+  headerIcon = "/images/github-mark-white.png"
+
+  twitter = ""
+  facebook = ""
+  linkedin = ""
+  instagram = ""
+  tumblr = ""
+
+  location = "Argentina"
+  url = "https://tatimun.github.io/apuntatis"
+  rss = true
+  lastmod = true
+
   enableSearch = true
+  enableGitalk = false   # apagado por ahora (no lo usás)
+
+  # Links opcionales abajo del perfil
+  [[params.links]]
+    title = "Mi GitHub"
+    href = "https://github.com/tatimun"
+    icon = "/images/github-mark.png"
+
+  [[params.links]]
+    title = "Apuntatis"
+    href = "https://tatimun.github.io/apuntatis/"
+    icon = "/images/avatar.gif"  # o lo que quieras
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
