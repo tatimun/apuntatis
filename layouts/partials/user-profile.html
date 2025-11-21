@@ -177,9 +177,9 @@
           {{ if .Site.Params.links }}
           {{ range .Site.Params.links }}
           {{ if .icon }}
-          <a style="margin: 0 10px 10px 0;" href="{{ .href }}">
-            <img alt="@{{ .title }}" width="32" height="32" src="{{ .icon }}" class="avatar">
-          </a>
+            <a style="margin: 0 10px 10px 0;" href="{{ .href }}">
+              <img alt="@{{ .title }}" width="32" height="32" src='{{ .icon | absURL }}' class="avatar">
+            </a>
           {{ else }}
           <a style="margin: 0 10px 10px 0;" href="{{ .href }}">
             <img alt="@{{ .title }}" width="32" height="32" src='{{ "images/link.png" | absURL }}' class="avatar">
