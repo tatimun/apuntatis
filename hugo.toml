@@ -27,8 +27,8 @@ pygmentsUseClasses = true
   # ⭐ RUTAS CORRECTAS PARA GITHUB PAGES
   avatar = "images/avatar.gif"
   favicon = "images/github-mark.png"
-  headerIcon = "images/github-mark-white.png"
-
+  headerIcon = "/images/github-mark-white.png"
+  github = "tatimun"
   twitter = ""
   facebook = ""
   linkedin = ""
@@ -42,11 +42,6 @@ pygmentsUseClasses = true
 
   enableSearch = true
   enableGitalk = false
-
-  [[params.links]]
-    title = "Mi GitHub"
-    href = "https://github.com/tatimun"
-    icon = "images/github-mark.png"
 
   [[params.links]]
     title = "Apuntatis"
