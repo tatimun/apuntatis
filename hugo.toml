@@ -53,10 +53,9 @@ pygmentsUseClasses = true
     href = "https://www.postman.com/titamoon"
     icon = "images/postman-icon.svg"
 
-  # ⭐⭐ GITALK — AHORA EN EL LUGAR CORRECTO ⭐⭐
   [params.gitalk]
-    clientID = "$GITALK_CLIENT_ID"
-    clientSecret = "$GITALK_CLIENT_SECRET"
+    clientID = "${GITALK_CLIENT_ID}"
+    clientSecret = "${GITALK_CLIENT_SECRET}"
     repo = "apuntatis"
     owner = "tatimun"
     admin = "tatimun"
