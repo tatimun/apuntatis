@@ -20,7 +20,7 @@ pygmentsUseClasses = true
   author = "Tati"
   description = "Rompiendo cosas 😋"
   email = "apuntatis@gmail.com"
-
+  keywords = "blog, google analytics"
   custom_css = ["css/custom.css"]
   custom_js = ["js/custom.js"]
   
@@ -39,9 +39,9 @@ pygmentsUseClasses = true
   url = "https://tatimun.github.io/apuntatis"
   rss = true
   lastmod = true
-
+  userStatusEmoji = "😀"
   enableSearch = true
-  enableGitalk = false
+  enableGitalk = true
 
   [[params.links]]
     title = "Apuntatis"
@@ -56,3 +56,15 @@ pygmentsUseClasses = true
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
 
+  [params.gitalk]
+    clientID = "$GITALK_CLIENT_ID"
+    clientSecret = "$GITALK_CLIENT_SECRET"
+    repo = "apuntatis"
+    owner = "tatimun"
+    admin = "tatimun"
+    id = "location.pathname"
+    labels = ["gitalk"]
+    perPage = 15
+    pagerDirection = "last"
+    createIssueManually = true
+    distractionFreeMode = false

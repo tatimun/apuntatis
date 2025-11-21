@@ -12,6 +12,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      HUGO_VERSION: 0.128.0
+      GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
+      GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
