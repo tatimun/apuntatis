@@ -22,9 +22,9 @@ pygmentsUseClasses = true
   email = "apuntatis@gmail.com"
 
   # ⭐ RUTAS CORRECTAS PARA GITHUB PAGES
-  avatar = "/apuntatis/images/avatar.gif"
-  favicon = "/apuntatis/images/github-mark.png"
-  headerIcon = "/apuntatis/images/github-mark-white.png"
+  avatar = "https://tatimun.github.io/apuntatis/images/avatar.gif"
+  favicon = "https://tatimun.github.io/apuntatis/images/github-mark.png"
+  headerIcon = "https://tatimun.github.io/apuntatis/images/github-mark-white.png"
 
   twitter = ""
   facebook = ""
@@ -43,12 +43,12 @@ pygmentsUseClasses = true
   [[params.links]]
     title = "Mi GitHub"
     href = "https://github.com/tatimun"
-    icon = "/apuntatis/images/github-mark.png"
+    icon = "https://tatimun.github.io/apuntatis/images/github-mark.png"
 
   [[params.links]]
     title = "Apuntatis"
     href = "https://tatimun.github.io/apuntatis/"
-    icon = "/apuntatis/images/avatar.gif"
+    icon = "https://tatimun.github.io/apuntatis/images/avatar.gif"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
