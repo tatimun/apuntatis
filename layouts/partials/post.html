@@ -101,3 +101,20 @@
 
 <script src='{{ "js/toc.js" | relURL }}'></script>
 <link rel="stylesheet" href='{{ "css/toc.css" | relURL }}' />
+{{ if .Site.Params.enableGitalk }}
+<div id="gitalk-container" class="gitalk-container"></div>
+<link rel="stylesheet" href="{{ "css/gitalk.css" | relURL }}">
+<script src="{{ "js/gitalk.min.js" | relURL }}"></script>
+<script>
+  const gitalk = new Gitalk({
+    clientID: '{{ .Site.Params.Gitalk.clientID }}',
+    clientSecret: '{{ .Site.Params.Gitalk.clientSecret }}',
+    repo: '{{ .Site.Params.Gitalk.repo }}',
+    owner: '{{ .Site.Params.Gitalk.owner }}',
+    admin: ['{{ .Site.Params.Gitalk.owner }}'],
+    id: location.pathname,
+    distractionFreeMode: false
+  });
+  gitalk.render('gitalk-container');
+</script>
+{{ end }}
