@@ -12,6 +12,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      HUGO_VERSION: 0.128.0
+      GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
+      GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,24 +27,32 @@ jobs:
           hugo-version: "latest"
           extended: true
 
-      # ⭐ REEMPLAZAR VARIABLES EN hugo.toml ⭐
+      # ⭐ DESCARGAR THEME
+      - name: Download GitHub-Style theme
+        run: |
+          mkdir -p themes
+          git clone https://github.com/MeiK2333/github-style.git themes/github-style
+
+      # ⭐ REEMPLAZAR LAS VARIABLES DENTRO DE hugo.toml
       - name: Replace Gitalk secrets in hugo.toml
         run: |
-          echo "== Antes de reemplazar =="
+          echo "===== ANTES ====="
           cat hugo.toml
 
           envsubst < hugo.toml > hugo.tmp
           mv hugo.tmp hugo.toml
 
-          echo "== Después de reemplazar =="
+          echo "===== DESPUÉS ====="
           cat hugo.toml
         env:
           GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
           GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
 
+      # ⭐ BUILD DEL SITIO
       - name: Build site
         run: hugo --minify
 
+      # ⭐ PUBLICAR ARTEFACTO
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
