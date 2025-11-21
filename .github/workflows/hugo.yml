@@ -27,11 +27,10 @@ jobs:
           hugo-version: "latest"
           extended: true
 
-      - name: Replace Gitalk secrets
+      - name: Replace secrets in hugo.toml
         run: |
-          sudo apt-get update && sudo apt-get install -y gettext-base
-          envsubst < config.toml > config.generated.toml
-          mv config.generated.toml config.toml
+          envsubst < hugo.toml > hugo.generated.toml
+          mv hugo.generated.toml hugo.toml
         env:
           GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
           GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
