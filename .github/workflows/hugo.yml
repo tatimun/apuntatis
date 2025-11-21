@@ -27,13 +27,15 @@ jobs:
           hugo-version: "latest"
           extended: true
 
-      # ✔️ Descargar theme SIN exponerlo en main
-      - name: Download GitHub-Style theme
+      - name: Replace Gitalk secrets
         run: |
-          mkdir -p themes
-          git clone --depth 1 https://github.com/MeiK2333/github-style.git themes/github-style
+          sudo apt-get update && sudo apt-get install -y gettext-base
+          envsubst < config.toml > config.generated.toml
+          mv config.generated.toml config.toml
+        env:
+          GITALK_CLIENT_ID: ${{ secrets.GITALK_ID }}
+          GITALK_CLIENT_SECRET: ${{ secrets.GITALK_CLIENT_SECRET }}
 
-      # ✔️ Usar tus layouts reales del repo (ya subidos)
       - name: Build site
         run: hugo --minify
 
