@@ -1,4 +1,4 @@
-baseURL = "https://tatimun.github.io/apuntatis/"
+baseURL = "https://tatimun.github.io/apuntatis"
 languageCode = "es"
 title = "Apuntatis"
 theme = "github-style"
@@ -45,7 +45,7 @@ pygmentsUseClasses = true
 
   [[params.links]]
     title = "Apuntatis"
-    href = "https://tatimun.github.io/apuntatis/"
+    href = "https://tatimun.github.io/apuntatis"
     icon = "images/avatar.gif"
 
   [[params.links]]
