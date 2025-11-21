@@ -1,0 +1,43 @@
+.cv-download-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.cv-main-btn {
+  background-color: #238636;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+}
+
+.cv-dropdown {
+  display: none;
+  position: absolute;
+  top: 42px;
+  left: 0;
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 8px 0;
+  border-radius: 6px;
+  min-width: 150px;
+  z-index: 9999;
+}
+
+.cv-dropdown a {
+  padding: 8px 12px;
+  display: block;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cv-dropdown a:hover {
+  background-color: #238636;
+}
+
+.cv-download-wrapper:hover .cv-dropdown {
+  display: block;
+}

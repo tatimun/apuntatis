@@ -1,0 +1,46 @@
+.cv-download-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cv-main-btn {
+  background-color: #862323;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.cv-main-btn:hover {
+  background-color: #29f14e;
+}
+
+.cv-dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 6px 0;
+  min-width: 150px;
+  z-index: 100;
+}
+
+.cv-dropdown a {
+  padding: 8px 12px;
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cv-dropdown a:hover {
+  background-color: #1f6feb;
+}
+
+.cv-download-wrapper:hover .cv-dropdown {
+  display: flex;
+}
