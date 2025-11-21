@@ -21,10 +21,10 @@ pygmentsUseClasses = true
   description = "Rompiendo cosas 😋"
   email = "apuntatis@gmail.com"
 
-  # ⭐ RUTAS ABSOLUTAS (esto arregla tu problema del avatar)
-  avatar = "/images/avatar.gif"
-  favicon = "/images/github-mark.png"
-  headerIcon = "/images/github-mark-white.png"
+  # ⭐ RUTAS CORRECTAS PARA GITHUB PAGES
+  avatar = "/apuntatis/images/avatar.gif"
+  favicon = "/apuntatis/images/github-mark.png"
+  headerIcon = "/apuntatis/images/github-mark-white.png"
 
   twitter = ""
   facebook = ""
@@ -38,18 +38,17 @@ pygmentsUseClasses = true
   lastmod = true
 
   enableSearch = true
-  enableGitalk = false   # apagado por ahora (no lo usás)
+  enableGitalk = false
 
-  # Links opcionales abajo del perfil
   [[params.links]]
     title = "Mi GitHub"
     href = "https://github.com/tatimun"
-    icon = "/images/github-mark.png"
+    icon = "/apuntatis/images/github-mark.png"
 
   [[params.links]]
     title = "Apuntatis"
     href = "https://tatimun.github.io/apuntatis/"
-    icon = "/images/avatar.gif"  # o lo que quieras
+    icon = "/apuntatis/images/avatar.gif"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
