@@ -1,4 +1,4 @@
-baseURL = "https://tatimun.github.io/apuntatis"
+baseURL = "https://tatimun.github.io/apuntatis/"
 languageCode = "es"
 title = "Apuntatis"
 theme = "github-style"
@@ -23,11 +23,11 @@ pygmentsUseClasses = true
   keywords = "blog, google analytics"
   custom_css = ["css/custom.css"]
   custom_js = ["js/custom.js"]
-  
-  # ⭐ RUTAS CORRECTAS PARA GITHUB PAGES
+
   avatar = "images/avatar.gif"
   favicon = "images/github-mark.png"
   headerIcon = "images/github-mark-white.png"
+
   github = "tatimun"
   twitter = ""
   facebook = ""
@@ -53,9 +53,7 @@ pygmentsUseClasses = true
     href = "https://www.postman.com/titamoon"
     icon = "images/postman-icon.svg"
 
-[frontmatter]
-  lastmod = ["lastmod", ":fileModTime", ":default"]
-
+  # ⭐⭐ GITALK — AHORA EN EL LUGAR CORRECTO ⭐⭐
   [params.gitalk]
     clientID = "$GITALK_CLIENT_ID"
     clientSecret = "$GITALK_CLIENT_SECRET"
@@ -68,3 +66,6 @@ pygmentsUseClasses = true
     pagerDirection = "last"
     createIssueManually = true
     distractionFreeMode = false
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
