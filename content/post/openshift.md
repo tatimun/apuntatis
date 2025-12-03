@@ -13,7 +13,7 @@ tags = ["Kubernetes","Openshift"]
 
 Para empezar a entender Openshift, primero se debe tener los conceptos de [Contenedores](Proximamente)
 
-Pensemos a Openshift como un restaurante enomre, donde hay mil pedidos por dia y sos una sola persona. No podes!
+Pensemos a Openshift como un restaurante enorme, donde hay mil pedidos por dia y sos una sola persona. No podes!
 Necesitas:
 - Cocineros
 - Recetas
