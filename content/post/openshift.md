@@ -5,82 +5,105 @@ lastmod = 2025-11-21T12:00:00-03:00
 author = "TatiMun"
 keywords = ["Openshift"]
 summary = "Guia para aprender lo basico de Openshift"
-draft = true
+draft = false
 type = "post"
 tags = ["Kubernetes","Openshift"]
 +++
 
-
-Para empezar a entender Openshift, primero se debe tener los conceptos de [Contenedores](Proximamente)
-
-Pensemos a Openshift como un restaurante enorme, donde hay mil pedidos por dia y sos una sola persona. No podes!
-Necesitas:
-- Cocineros
-- Recetas
-- Meseros
-- etc.
+Para empezar con Openshift (Que es una version de Kubernetes pero version paga y mas outOfTheBox) debieramos empezar a entender, para que nos sirve y que viene a resolver. 
 
 
-Openshift viene a organizar tu restaurante.
+## 🧨 Problemática
 
-Cada pod es un plato servido, un plato puede tener dos comidas (contenedores) 
+Antes las aplicaciones corrían en servidores físicos o VMs.
 
-Una comida tiene sus recetas, un contenedor puede tener un Nginx, otro un MySQL y asi
+Si una se caía → había que adivinar **en cuál servidor estaba**, entrar por SSH, revisar logs, ver CPU/RAM, la red, reiniciar, cruzar los dedos 😵‍💫😵
 
-El pedido (Deployment) puede tener varias comidas que requieran varias recetas 
-"Tengo un pedido de 3 platos de pizza listos, si uno se cae, tenemos que hacer otro para entregarlo"
+Y si necesitabas más capacidad → había que **comprar otro servidor**, configurarlo a mano y esperar que no explote todo en un deploy un viernes 18 hs.
 
-Kubernetes se encarga de siempre tener los platos listos, si un plato desaparece, se crea otro.
+¡Te volvias loco!
+
+
+## ✨ Solución
+
+Gracias a Kubernetes / OpenShift 🚀  
+todas las aplicaciones corren en **contenedores** (consumiendo solo lo justo y necesario).
+
+Si un pod se muere → **se levanta otro solo** 💅✨
+
+No hay que entrar a 20 servidores distintos a ver cuál se rompió.  
+Ahora **el control es centralizado**: declarás **el estado deseado** y Kubernetes se encarga de que **se cumpla siempre** 🧠
+
+Las apps dejan de ser **mascotas** y pasan a ser **ganado**:  
+si una cae, se crea otra nueva automáticamente 🐄💥
 
 --- 
 
-Entonces podriamos decir que un Deployment nos da una "receta" de las aplicaciones que queremos levantar y cantidad de pods. 
-Tambien podemos indicarle muchas cosas "especias"
+## ¡Tu propio restaurante!
 
-Aca dejo un ejemplo de un deployment super optimizado:
+Ahora, pensemos que este orquestador de contenedores en un Resto 👨‍🍳 Hay mil pedidos por dia y no llegar a cumplir con todo! Por suerte, tu ayudante te da una super ayuda.
 
-```
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: app-doble
-  namespace: demo
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: app-doble
-  template:
-    metadata:
-      labels:
-        app: app-doble
-    spec:
-      containers:
-        - name: contenedor-principal
-          image: nginx:1.25
-          ports:
-            - containerPort: 80
+## 🍽️ Metáfora del restaurante
 
-        - name: contenedor-secundario
-          image: busybox:1.36
-          command: ["sh", "-c", "while true; do echo 'Sidecar vivo'; sleep 10; done"]
+Para entender Kubernetes sin llorar, pensemos en un restaurante (tu app) 😌✨💪
 
-```
+## 🍽️ Metáfora del restaurante — Versión mejorada 😌✨💪
 
-En ese ejemplo podemos resaltar detalles importantes:
+Para entender Kubernetes, pensemos en un restaurante (tu aplicación) 😌✨💪
 
-- **⭐ replicas: 1** : "Quiero tener 1 copia de este pod funcionando siempre", Kubernetes buscara la forma de tener siempre corriendo esta copia, el encargado de esto es el **ReplicaSet** (Este concepto lo veremos mas adelante)
-- **⭐ contenedor-principal** : La aplicacion "real" en este caso, nginx 
-- **⭐ contenedor-secundario**: Otra aplicacion real, en este caso, una app que imprime cada 10 segundos
-AMBOS viven en un mismo pod (Comparten red, IP, volumenes si quisieramos)
+---
+
+### 🥘 Deployment = El **plato del menú** 😌✨💪
+Representa **qué** querés servir y **cuántos platos** tienen que estar listos.
+Ej: *“Quiero 3 milanesas con papas listas siempre”*  
+→ mantener replicas del plato
+
+---
+
+### 🍱 Pod = El **plato servido en la mesa** 😌✨💪
+Cada Pod es **una instancia real del plato**.  
+Si un plato se cae al suelo, sale otro **automáticamente** 😌✨💪
+
+---
+
+### 🧂 Contenedores = **Guarniciones / ingredientes del plato** 😌✨💪
+Un plato puede tener:
+- milanesa (app principal)
+- papas fritas (sidecar: logs, proxy, etc.)
+
+Están **en el mismo plato**, llegan **juntos** a la mesa 😌✨💪
+
+---
+
+### 🧑‍🍽️ Service = El **mozo** 😌✨💪
+No importa **dónde** están los platos,  
+el mozo **sabe a qué cocina pedirlos** y **cómo entregarlos** al cliente 😌✨💪
+
+---
+
+### 🚪 Ingress = La **persona de la entrada / reservas** 😌✨💪
+Controla **quién entra** al restaurante  
+y a **qué plato** (aplicación) quiere acceder 😌✨💪
+
+---
+
+### 🔥 Node = La **cocina / estación de trabajo** 😌✨💪
+Donde realmente se preparan los platos.  
+Si una cocina falla → movemos la preparación a otra 😌✨💪
+
+---
+
+### 🧠 Control Plane = El **gerente del restaurante** 😌✨💪
+Supervisa todo:
+- que haya suficientes platos
+- que los mozos funcionen bien
+- que la cocina no explote
+
+Asegura que **el restaurante funcione aunque haya caos** 😌✨💪
+
+---
+
+📌 *Resumen express:*  
+**Deployment** pide 5 platos → **Pods** son esos platos → **Contenedores** son la comida en el plato → **Service** los sirve → **Ingress** deja entrar a los clientes 😌✨💪
 
 
-
-** Debemos tener conceptos y palabras claves **
-- Deployment
-- Pod
-- Contenedor
-- Service
-- Ingress
-- Volume Class
-- Persistent Volume 
