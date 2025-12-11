@@ -59,13 +59,13 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
 
 - Permisos requeridos: 
     - Build Adminitrator: Permite la creacion de releases, recursos y administracion de builds para el proyecto (Seguridad Informatica es el equipo encargado de asignar los permisos a los diferentes proyectos)  
-    ![Build Administrator](./databricks-CICD/image.png)
+    ![Build Administrator](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image.png?raw=true)
 
      
      - Service Connection User: Permite leer y utilizar las Service connection (Seguridad Informatica es el equipo encargado de asignar permisos a los diferentes proyectos) 
 
 
-    ![Service Connection user](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image-1.png)
+    ![Service Connection user](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image-1.png?raw=true)
     
      - (Project Settings -> Service Connections -> Security, donde Endpoint Adminitrator y Endpoint Creators son grupos de permisos declarados dentro de Permissions)
 ---
@@ -73,7 +73,7 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
 # Flujo de Trabajo 
 
 
-![Flow Tradicional](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlowTradicional.jpg)
+![Flow Tradicional](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlowTradicional.jpg?raw=true)
 
 (Este flujo de trabajo es el anterior)
 
@@ -86,7 +86,7 @@ El pipeline reléase esta configurado para crear un nuevo relerase y deployar un
 
 # Flujo de trabajo Actual
 
-![Flow de trabajo Actual](../databricks-CICD/FlujoDeTrabajo(Nuevo).jpg)
+![Flow de trabajo Actual](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlujoDeTrabajo(Nuevo).jpg?raw=true)
 
 En esta versión del flujo de trabajo, cada usuario hará cambios en su ramas individuales, va a crear pull request hacia main para realizar cambios .
 El build es triggearado cada vez que un nuevo commit se hace a main (ADF y Azure DevOps), valida los recursos y genera la ARM Template como artifact si la validación es exitosa. 
