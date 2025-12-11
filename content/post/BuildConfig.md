@@ -1,7 +1,7 @@
 +++
 title = "BuildConfigs: La red de la construccion"
-date = "2025-11-12"
-lastmod = 2025-11-12
+date = "2025-12-11"
+lastmod = 2025-12-11
 author = "TatiMun"
 keywords = ["Openshift"]
 summary = "¿Que es un BuildConfig?¿Se come?"
