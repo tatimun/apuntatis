@@ -7,7 +7,7 @@ keywords = ["Openshift"]
 summary = "¿Que es un BuildConfig?¿Se come?"
 draft = false
 type = "post"
-tags = ["Openshift"]
+tags = ["Openshift","Kubernetes"]
 +++
 
 # ✨ Build Configs ✨
