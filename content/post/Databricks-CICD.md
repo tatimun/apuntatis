@@ -63,7 +63,7 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
      - Service Connection User: Permite leer y utilizar las Service connection (Seguridad Informatica es el equipo encargado de asignar permisos a los diferentes proyectos) 
 
 
-    ![Service Connection user](./databricks-CICD//image-1.png)
+    ![Service Connection user](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image-1.png)
     
      - (Project Settings -> Service Connections -> Security, donde Endpoint Adminitrator y Endpoint Creators son grupos de permisos declarados dentro de Permissions)
 ---
@@ -71,7 +71,7 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
 # Flujo de Trabajo 
 
 
-![Flow Tradicional](./databricks-CICD//FlowTradicional.jpg)
+![Flow Tradicional](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlowTradicional.jpg)
 
 (Este flujo de trabajo es el anterior)
 
@@ -110,13 +110,13 @@ Esta versión utiliza el ADFUtilities package que esta en la carpeta de build en
 a. Ingresar a portal.azure.com
 
 b. Ir a App registrations (en EntraId) en New Registration  
-![AppRegistration](./databricks-CICD//AppRegistration.jpg)
+![AppRegistration](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/AppRegistration.jpg?raw=true)
 
 c. En el contexto, elegiremos únicamente Single Tenant
 
 d. En nuestro app registration, deberemos cargar el .cert (Clave publica) en la parte de “Certificates & Secrets” 
 
-![Subir certificado](./databricks-CICD//SubirCertificado.jpg)
+![Subir certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/SubirCertificado.jpg?raw=true)
 
 Nota: Esta app registration debe tener permisos contributor sobre la subscripcion o resource group
 
@@ -125,7 +125,7 @@ Nota: Esta app registration debe tener permisos contributor sobre la subscripcio
 Se le solicita a seguridad la generacion de un certificado publico y una clave privada. 
 
 
-![Formato del certificado](./databricks-CICD//Formatodelcertificado.png)
+![Formato del certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Formatodelcertificado.png?raw=true)
 
 ### Creacion del service connection
 
@@ -139,16 +139,16 @@ Al utilizar certificado es necesario realizar la configuración de forma manual.
 2. Ir a Service Connections
 3. Click en crear nueva service connection
 
-![Completar](./databricks-CICD//ServiceConnection.jpg)
-![Completar](./databricks-CICD//ServiceConnection2.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/ServiceConnection.jpg?raw=true)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/ServiceConnection2.jpg?raw=true)
 
 Aca vamos a tener que completar
 - Subscription Id: Lo encontraremos en Azure en la parte de Subscription junto con su nombre
 - Subscription Name
 - Service Principal Id: Lo encontraremos yendo al App Registration
-![Completar](./databricks-CICD//AppRegistrationInfo.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/AppRegistrationInfo.jpg?raw=true)
 - Certificate: Deberemos seguir el formato del certificado creado antes, es decir, concatenar el certificado publico y la llave privada 
-![Completar](./databricks-CICD//Formatodelcertificado.png)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Formatodelcertificado.png?raw=true)
 - TenantId: Podremos encontrarlo en la informacion del app registration
 
 4. Damos click en Verify y continuamos
@@ -156,12 +156,12 @@ Aca vamos a tener que completar
 ---
 
 # Configuracion del Data Factory 
-![Completar](./databricks-CICD//DataFactoryInfo.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/DataFactoryInfo.jpg?raw=true)
 
 -	Collaboration Branch: Es la rama de ADF donde se enviaran todos los cambios de ramas individuales para triggerear hacia Azure DevOps 
 -	Publish Branch(ANTIGUO FLOW): El adf-publish (Publish Branch) sirve para publicar el ARMTemplateForFactory.json una vez finalizado el ciclo de vida, en este caso, no se utilizara ya que gracias a ADFPublishUtilities toma todos los cambios al momento desde el data factory 
 
-![Completar](./databricks-CICD//ARMParameters.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/ARMParameters.jpg?raw=true)
 
 Esta opcion debe estar marcada para poder pasar parametros por pipeline
 
@@ -185,7 +185,7 @@ El pool indica donde esta alojado la maquina/container efimero que se utilizara 
 Una vez creado y ejecutado el pipeline, nos devuelve un artifact que triggerea la accion del pipeline release para el deploy.
 
 
-![Completar](./databricks-CICD//Artifact.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Artifact.jpg?raw=true)
 --
 
 
@@ -194,24 +194,24 @@ Una vez creado y ejecutado el pipeline, nos devuelve un artifact que triggerea l
 ---
 # Creacion del Release
 
-![Completar](./databricks-CICD//Release1.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release1.jpg?raw=true)
 
 1.	Iremos a dev.azure.com y al projecto que usaremos 
 2.	Ir a Pipelines > Releases > Create Release
 
 
-![Completar](./databricks-CICD//Release2.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release2.jpg?raw=true)
 
 En este punto podemos importar algúna plantilla o crear de cero 
 
-![Completar](./databricks-CICD//Release3.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release3.jpg?raw=true)
 
 En la parte de Artifacts, pondremos el repositorio donde se generó el build del mismo Azure DevOps
 
 3.	Selecionar Empty Job 
-![Completar](./databricks-CICD//Release4.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release4.jpg?raw=true)
 
-![Completar](./databricks-CICD//Release5.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release5.jpg?raw=true)
 
 Elegimos build, dado que en nuestro repo tenemos configurado un pipeline build en nuestro repositorio 
 -	Project: El Projecto donde estamos posicionados
@@ -219,12 +219,12 @@ Elegimos build, dado que en nuestro repo tenemos configurado un pipeline build e
 -	Default Version: Version del artifact 
 -	Source alias: Nombre del artifacto que se va a asociar a el reléase de cada pipeline
 
-![Completar](./databricks-CICD//Release6.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release6.jpg?raw=true)
 
 En el icono de trigger, podremos activar el trigger de cada vez que hay un nuevo build disponible, se inicia este pipeline (En nuestro caso, se inicia un nuevo build cada vez que se pushea hacia main) 
 
-![Completar](./databricks-CICD//Release7.jpg)
-![Completar](./databricks-CICD//Release8.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release7.jpg?raw=true)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release8.jpg?raw=true)
 
 En Agent Specification necesitaremos Windows-2019 (Para este reléase)
 El Agent pool es donde se ejecutan los agentes que nos permiten ejecutar los pipelines, como este es Azure Pipelines, se genera un contenedor/maquina efimera que ejecutara el pipeline y se eliminara 
@@ -233,7 +233,7 @@ Haciendo clic en el icono de “+” en Agent Job, podremos agregar “Task”. 
 
 Tasks: Azure Powershell script: PreDeployment
 
-![Completar](./databricks-CICD//Release9.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release9.jpg?raw=true)
 
 La versión de esta task tiene que ser versión 4* para ser compatible con el script.
 -	Azure Subcription: Acá ira el Service connection
@@ -249,9 +249,9 @@ Utilizaremos el Powershell latest versión.
 La task siguiente será: ARM Template Deployment: Resource Group Scoupe 
 
 
-![Completar](./databricks-CICD//Release10.jpg)
-![Completar](./databricks-CICD//Release11.jpg)
-![Completar](./databricks-CICD//release12-1.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release10.jpg?raw=true)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release11.jpg?raw=true)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/release12-1.jpg?raw=true)
 
 
 
@@ -268,8 +268,8 @@ La task siguiente será: ARM Template Deployment: Resource Group Scoupe
 -	Deployment Name: El nombre de la acción luego del deployment
 La siguiente y ultima tasks será Azure Powershell Post Deployment
 
-![Completar](./databricks-CICD//Release12.jpg)
-![Completar](./databricks-CICD//Release13.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release12.jpg?raw=true)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Release13.jpg?raw=true)
 
 
 La versión de esta task tiene que ser versión 4* para ser compatible con el script.
@@ -287,15 +287,11 @@ Utilizaremos el Powershell latest versión.
 
 # Variables 
 
-![Completar](./databricks-CICD//Variables1.jpg)
+![Completar](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Variables1.jpg?raw=true)
 
 En este caso tenemos dos librerías previamente creadas con valores para cada ambiente, se les agrega el nombre y el value 
 
 Una vez realizado todo esto, podremos hacer clic en créate reléase que ejecutara todo como si hubiésemos triggereado el repositorio 
-
-# Flujo de trabajo de Developers
-Referirse al documento de [Manual de Usuario](https://hipotecario.sharepoint.com/:w:/s/SYT-INFRAESTRUCTURATECNOLOGICA-DevOps/EUSYrav4qLlDmZTLZvxnd-8B9DzynnTnRiQGZ0RBzdQ0Ig?e=6KyeMA)
-
 
 
 # Aprobacion por ambiente
@@ -318,7 +314,7 @@ Este error se soluciona cambiando el agent pool a Windows 2019, y para versión 
 ### Troubleshooting error en el Build
 
 
-![Troubleshooting](./databricks-CICD//TroubleshootingError.png)
+![Troubleshooting](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/TroubleshootingError.png?raw=true)
 
 Este error se soluciona verificando la documentacion de [Microsoft](https://learn.microsoft.com/en-us/azure/data-factory/continuous-integration-delivery-improvements?source=recommendations) Verificar la version del "NodeJs" que se instala, si se trata de una version anterior a la que figura en la documentacion, generara ese error indicado en la imagen
 
