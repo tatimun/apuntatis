@@ -5,7 +5,7 @@ lastmod = 2025-11-21T12:00:00-03:00
 author = "TatiMun"
 keywords = ["Backstage"]
 summary = "Backstage: el concepto de IDP"
-draft = false
+draft = true
 type = "post"
 tags = ["Backstage"]
 +++
