@@ -1,18 +1,15 @@
 +++
-title = "Databricks: CICD - AzureDevOps"
+title = "DataFactory: CICD - AzureDevOps"
 date = "2025-06-18"
 lastmod = 2025-12-11
 author = "TatiMun"
-keywords = ["AzureDevOps","Databricks"]
+keywords = ["AzureDevOps","DataFactory"]
 summary = "Troubleshooting de la documentacion de Microsoft"
 draft = false
 type = "post"
-tags = ["AzureDevOps","Databricks"]
+tags = ["AzureDevOps","DataFactory"]
 +++
 
-## Problematica:  
-
-Databricks y AzureDevOps ofrecen una integracion entre ellos utilizando databricks bundles y demas, o sincronizando diferentes servicios entre ellos. En el contexto de securitizacion de una empresa, es inseguro exponer un keyvault para que AzureDevOps acceda dado que este esta por fuera de la red de Azure. 
 
 # Contenido:
 
