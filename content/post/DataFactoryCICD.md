@@ -56,13 +56,13 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
 
 - Permisos requeridos: 
     - Build Adminitrator: Permite la creacion de releases, recursos y administracion de builds para el proyecto (Seguridad Informatica es el equipo encargado de asignar los permisos a los diferentes proyectos)  
-    ![Build Administrator](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image.png?raw=true)
+    ![Build Administrator](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/image.png?raw=true)
 
      
      - Service Connection User: Permite leer y utilizar las Service connection (Seguridad Informatica es el equipo encargado de asignar permisos a los diferentes proyectos) 
 
 
-    ![Service Connection user](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/image-1.png?raw=true)
+    ![Service Connection user](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/image-1.png?raw=true)
     
      - (Project Settings -> Service Connections -> Security, donde Endpoint Adminitrator y Endpoint Creators son grupos de permisos declarados dentro de Permissions)
 ---
@@ -70,7 +70,7 @@ Cada grupo de permisos dentro de Azure contiene grupos de Active Directory
 # Flujo de Trabajo 
 
 
-![Flow Tradicional](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlowTradicional.jpg?raw=true)
+![Flow Tradicional](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/FlowTradicional.jpg?raw=true)
 
 (Este flujo de trabajo es el anterior)
 
@@ -83,7 +83,7 @@ El pipeline reléase esta configurado para crear un nuevo relerase y deployar un
 
 # Flujo de trabajo Actual
 
-![Flow de trabajo Actual](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/FlujoDeTrabajo(Nuevo).jpg?raw=true)
+![Flow de trabajo Actual](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/FlujoDeTrabajo(Nuevo).jpg?raw=true)
 
 En esta versión del flujo de trabajo, cada usuario hará cambios en su ramas individuales, va a crear pull request hacia main para realizar cambios .
 El build es triggearado cada vez que un nuevo commit se hace a main (ADF y Azure DevOps), valida los recursos y genera la ARM Template como artifact si la validación es exitosa. 
@@ -109,13 +109,13 @@ Esta versión utiliza el ADFUtilities package que esta en la carpeta de build en
 a. Ingresar a portal.azure.com
 
 b. Ir a App registrations (en EntraId) en New Registration  
-![AppRegistration](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/AppRegistration.jpg?raw=true)
+![AppRegistration](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/AppRegistration.jpg?raw=true)
 
 c. En el contexto, elegiremos únicamente Single Tenant
 
 d. En nuestro app registration, deberemos cargar el .cert (Clave publica) en la parte de “Certificates & Secrets” 
 
-![Subir certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/SubirCertificado.jpg?raw=true)
+![Subir certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/SubirCertificado.jpg?raw=true)
 
 Nota: Esta app registration debe tener permisos contributor sobre la subscripcion o resource group
 
@@ -124,7 +124,7 @@ Nota: Esta app registration debe tener permisos contributor sobre la subscripcio
 Se le solicita a seguridad la generacion de un certificado publico y una clave privada. 
 
 
-![Formato del certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/databricks-CICD/Formatodelcertificado.png?raw=true)
+![Formato del certificado](https://github.com/tatimun/apuntatis/blob/main/content/post/datafactory-CICD/Formatodelcertificado.png?raw=true)
 
 ### Creacion del service connection
 
